@@ -5,6 +5,7 @@ import NameComponent from './components/NameComponent'
 import GenderComponent from './components/GenderComponent'
 import BodyTypeComponent from './components/BodyTypeComponent'
 import SizeComponent from './components/SizeComponent'
+import HeaderComponent from './components/HeaderComponent'
 import './App.css';
 
 class App extends Component {
@@ -47,6 +48,7 @@ class App extends Component {
 
     return (
       <div className="App">
+      <HeaderComponent />
       {/* <ProgressBar /> */}
       {/* {this.props.maleBodyTypes.map(b => <p>{b.description}</p>)} */}
       {/* <Route path='/start' render={(routeProps) => <FistComponent {...routeProps} firstName={this.state.firstName} />} */}

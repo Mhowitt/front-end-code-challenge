@@ -1,10 +1,12 @@
+/* Picking color palette - 3 6 7 20 31
+Dusty - 96858F
+Lavender - 6D7993
+Overcast - 9099A2
+Paper - D5D5D5
+*/
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
 }
 
 .App-header {
@@ -22,7 +24,3 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
