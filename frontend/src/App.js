@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
+import axios from 'axios'
+import { API_URL }from './config.js'
 import WelcomeComponent from './components/WelcomeComponent'
-import NameComponent from './components/NameComponent'
-import GenderComponent from './components/GenderComponent'
-import BodyTypeComponent from './components/BodyTypeComponent'
+import NameComponent from './components/NameComponent/NameComponent.jsx'
+import GenderComponent from './components/GenderComponent/GenderComponent.jsx'
+import BodyTypeComponent from './components/BodyTypeComponents/BodyTypeComponent.jsx'
 import SizeComponent from './components/SizeComponent'
-import HeaderComponent from './components/HeaderComponent'
+import HeaderComponent from './components/HeaderComponent/HeaderComponent'
+import ResultsComponent from './components/ResultsComponent'
 import './App.css';
 
 class App extends Component {
@@ -17,13 +20,30 @@ class App extends Component {
         gender: '',
         bodyType: '',
         bodySize: '',
-        recommendedPartners: [],
+        brands:[],
+        takingQuiz: false,
     }
   }
 
   componentDidMount() {
-    // API calls before everything else
-    // this.setState()  // with the results of the API call
+    let brands = [];
+    axios
+    .get(`${API_URL}/acme`)
+    .then(data => {
+      brands.push({acme: data.data})
+    })
+    axios
+    .get(`${API_URL}/bongo`)
+    .then(data => {
+      brands.push({bongo: data.data})
+    })
+    axios
+    .get(`${API_URL}/delta`)
+    .then(data => {
+      brands.push({delta: data.data})
+      this.setState({brands: brands})
+    })
+    .catch(err => console.log(err));
   }
 
   handleChange = e => {
@@ -31,28 +51,23 @@ class App extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
-  handleSubmit = e => {
-    e.preventDefault();
-    let unassigned = false;
-    if (this.state.gender === '') {
-      unassigned = true;
-    }
-
-    console.log(this.state.firstName + ' ' + unassigned)
-
+  openModal = () => {
+    this.setState({ takingQuiz: true });
   }
 
+  hideModal = () => {
+    this.setState({ takingQuiz: false });
+  }
+
+
   render() {
-   const { firstName, lastName, gender, bodyType, bodySize } = this.state;
+   const { firstName, lastName, gender, bodyType, bodySize, brands } = this.state;
    const { maleBodyTypes, femaleBodyTypes } = this.props;
 
     return (
       <div className="App">
       <HeaderComponent />
-      {/* <ProgressBar /> */}
-      {/* {this.props.maleBodyTypes.map(b => <p>{b.description}</p>)} */}
-      {/* <Route path='/start' render={(routeProps) => <FistComponent {...routeProps} firstName={this.state.firstName} />} */}
-      {/* <Route path='/second' render={(routeProps) => <SecondComponent {...routeProps} firstName={this.state.firstName} />} */}
+    <Switch>
       <Route exact path='/profile/size' render={(routeProps) =>
         <SizeComponent {...routeProps}
           firstName={firstName}
@@ -87,8 +102,19 @@ class App extends Component {
           question={1}
           />}
       />
-      <Route exact path='/' render={(routeProps) => <WelcomeComponent {...routeProps} />} />
-
+      <Route exact path='/results' render={(routeProps) =>
+        <ResultsComponent {...routeProps}
+          firstName={firstName}
+          lastName={lastName}
+          gender={gender}
+          bodyTypes={this.state.gender === 'male' ? maleBodyTypes : femaleBodyTypes}
+          bodySize={bodySize}
+          brands={brands}
+          getResult = {this.getResult}
+          />}
+      />
+      <Route exact path='/' render={(routeProps) => <WelcomeComponent {...routeProps} hideModal={this.hideModal} openModal={this.openModal}/>} />
+  </Switch>
       </div>
     );
   }
@@ -132,9 +158,5 @@ App.defaultProps = {
       }
   ]
 }
-
-// const FirstComponent = props => {
-//   return <div><Link to='/second'>Next</Link></div>
-// }
 
 export default App;

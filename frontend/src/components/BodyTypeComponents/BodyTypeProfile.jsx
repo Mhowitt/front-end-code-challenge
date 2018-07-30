@@ -1,14 +1,15 @@
 import React from 'react';
+import './BodyTypeProfile.css'
 
 const BodyTypeProfile = props => {
   return (
     <div>
-      <figure style={{width:'100px', height:'300px'}}>
+      <figure style={{width:'10vw', height:'300px'}}>
         <img src={props.bodyType.pic} alt={'picture of' + props.bodyType.type + 'body type'}style={{width:'100px', height:'200px'}}/>
         <figcaption>{props.bodyType.description}</figcaption>
       </figure>
       <div>
-        <button>Is this you?</button>
+        <button onClick={props.handleChange} className="body-button" name="bodyType" value={props.bodyType.type} >Is this you?</button>
       </div>
     </div>
   )

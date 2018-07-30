@@ -1,0 +1,35 @@
+.login_field {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 15%;
+  align-items: center;
+  position: relative;
+
+}
+
+.login_field > .login_input {
+  border-bottom: 1px solid rgb(213,189,187);
+  box-shadow: rgb(223, 212, 211) 0px 6px 15px -5px;
+  margin-right: 0;
+  bottom: 2px;
+  left: 3px;
+  position: relative;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  width: 50%;
+  height: 40px;
+}
+
+.login_field > .login_input::placeholder {
+  color: #9099A2;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.login_input:focus {
+  outline: none;
+  box-shadow: rgb(223, 212, 211) 0px 6px 15px -5px;
+  text-align: center;
+}

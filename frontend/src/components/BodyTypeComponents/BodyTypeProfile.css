@@ -1,0 +1,11 @@
+.body-button {
+  align-self: center;
+  width: auto;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #96858F;
+  color: rgb(254, 252, 252);
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+}

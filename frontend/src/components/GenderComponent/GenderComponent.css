@@ -1,0 +1,91 @@
+.gender-container {
+  width: 228px;
+  height: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.gender-img {
+  width: 228px;
+  height: 400px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.female {
+  background-image: url("../../woman.png");
+}
+
+.male {
+  background-image: url("../../man.png");
+}
+
+.gender-button {
+  align-self: flex-start;
+  position: relative;
+  width: auto;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #96858F;
+  color: rgb(254, 252, 252);
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+  bottom: 0;
+  opacity: 1;
+  left: 5%;
+  /* transition: bottom 1s linear; */
+}
+.gender-button:active {
+  color:white;
+}
+
+/* .gender-container:hover .gender-button {
+  bottom: 50%;
+  opacity: 1;
+} */
+
+/* .text-button {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+} */
+
+.card {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+}
+
+/* .arrow {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #96858F;
+  transform: rotate(180deg);
+  box-shadow: 0px 1px 20px -7px rgba(107,91,107,0.75);
+  background-image: url('../../arrow.png');
+  background-size: cover;
+  cursor: pointer;
+  transition: box-shadow 1.5s linear ease-out;
+}
+
+.arrow:hover {
+  box-shadow: 0px 1px 25px -6px rgba(107,91,107,0.75);
+}
+
+.next-button {
+  position: absolute;
+  right: 1%;
+  bottom: 0;
+}
+
+.card-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+} */

@@ -7,20 +7,72 @@ Paper - D5D5D5
 
 .App {
   text-align: center;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  background-color: #f7f7f7;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+h2 {
+  color: #6D7993;
 }
 
-.App-title {
-  font-size: 1.5em;
+button:focus {
+  outline:0;
 }
 
-.App-intro {
-  font-size: large;
+.arrow {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #96858F;
+  transform: rotate(180deg);
+  box-shadow: 0px 1px 20px -7px rgba(107,91,107,0.75);
+  background-image: url('./arrow.png');
+  background-size: contain;
+  cursor: pointer;
+  transition: box-shadow 1.5s linear ease-out;
 }
 
+.arrow:hover {
+  box-shadow: 0px 1px 25px -6px rgba(107,91,107,0.75);
+}
+
+.next-button {
+  position: absolute;
+  right: 1%;
+  bottom: 0;
+}
+
+
+.card-container {
+  margin: 1.5rem auto;
+  background: #fff;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 70vh;
+  /* margin: 1rem; */
+  width: 90%;
+  align-self: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.start-quiz {
+  width: auto;
+  height: 40px;
+  border-radius: 10px;
+  color: #6D7993;
+  background-color: rgb(254, 252, 252);
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 1s linear;
+}
+
+.start-quiz:hover {
+  color: rgb(254, 252, 252);;
+  background-color: #6D7993;
+}

@@ -1,19 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import ProgressBar from './ProgressBar/ProgressBar'
 
 const SizeComponent = props => {
   return (
     <div>
-      <h1>Now tell us what your body type is!</h1>
-      <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-around'}}>
-        <div>Petite</div>
-        <div>Average</div>
-        <div>Tall</div>
+      <h2>Now tell us what your body type is!</h2>
+      <ProgressBar question={props.question}/>
+      <div className="card-container">
+        <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-around'}}>
+          <div>Petite</div>
+          <div>Average</div>
+          <div>Tall</div>
+        </div>
+        <div>
+          <Link to="/results"><button type="submit" className="start-quiz">Submit your results!</button></Link>
+        </div>
       </div>
-      <button type="submit">Submit your results!</button>
-
     </div>
   )
 }
+
 
 export default SizeComponent;
