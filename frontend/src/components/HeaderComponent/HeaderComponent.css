@@ -8,7 +8,10 @@
   flex-direction: row;
   align-items: center;
 }
-
+a {
+  text-decoration: none;
+  color: #6D7993;
+}
 .title-header {
   font-size: 22px;
   margin-left: 1%;

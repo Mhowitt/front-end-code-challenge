@@ -8,7 +8,7 @@ const WelcomeComponent = props => {
       <div className="card-container">
         <p> Here at RightFit we believe that fashion should be tailored to you rather than the other way around</p>
         <p>Take our quiz to find which of our brand are designed for you</p>
-      <Link to="/profile"><button className="start-quiz">
+      <Link to="/profile"><button className="start-quiz" onClick={props.handleClick}>
       Let's find my perfect brand!
       </button></Link>
       </div>

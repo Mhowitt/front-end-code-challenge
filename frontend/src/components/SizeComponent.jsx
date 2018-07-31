@@ -6,7 +6,7 @@ const SizeComponent = props => {
   return (
     <div>
       <h2>Now tell us what your body type is!</h2>
-      <ProgressBar question={props.question}/>
+      {/* <ProgressBar question={props.question}/> */}
       <div className="card-container">
         <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-around'}}>
           <div>Petite</div>
@@ -14,7 +14,7 @@ const SizeComponent = props => {
           <div>Tall</div>
         </div>
         <div>
-          <Link to="/results"><button type="submit" className="start-quiz">Submit your results!</button></Link>
+          <Link to="/results"><button type="submit" className="start-quiz" onClick={props.handleClick} >Submit your results!</button></Link>
         </div>
       </div>
     </div>

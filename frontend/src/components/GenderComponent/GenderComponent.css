@@ -24,7 +24,6 @@
 
 .gender-button {
   align-self: flex-start;
-  position: relative;
   width: auto;
   height: 40px;
   border-radius: 10px;
@@ -36,21 +35,7 @@
   bottom: 0;
   opacity: 1;
   left: 5%;
-  /* transition: bottom 1s linear; */
 }
-.gender-button:active {
-  color:white;
-}
-
-/* .gender-container:hover .gender-button {
-  bottom: 50%;
-  opacity: 1;
-} */
-
-/* .text-button {
-  opacity: 0;
-  transition: opacity 1s ease-in;
-} */
 
 .card {
   display: flex;

@@ -5,11 +5,15 @@ import './HeaderComponent.css'
 const HeaderComponent = props => {
   return (
     <div className="header-container" >
-      <div className="title-header">RightFit</div>
-      <div className="button-header">
-      <Link to={'/'}><button className="start-quiz">Take our Quiz</button></Link>
-      </div>
-
+      <div className="title-header"><Link to={'/'}>RightFit</Link></div>
+      {
+        props.takingQuiz ?
+        ''
+      :
+        <div className="button-header">
+        <Link to={'/profile'}><button className="start-quiz" onClick={props.handleClick} >Take our Quiz</button></Link>
+        </div>
+      }
     </div>
   )
 }

@@ -3,12 +3,13 @@ import { Route, Switch } from 'react-router-dom'
 import axios from 'axios'
 import { API_URL }from './config.js'
 import WelcomeComponent from './components/WelcomeComponent'
+import ProgressBar from './components/ProgressBar/ProgressBar'
 import NameComponent from './components/NameComponent/NameComponent.jsx'
 import GenderComponent from './components/GenderComponent/GenderComponent.jsx'
 import BodyTypeComponent from './components/BodyTypeComponents/BodyTypeComponent.jsx'
 import SizeComponent from './components/SizeComponent'
 import HeaderComponent from './components/HeaderComponent/HeaderComponent'
-import ResultsComponent from './components/ResultsComponent'
+import ResultsComponent from './components/ResultsComponents/ResultsComponent.jsx'
 import './App.css';
 
 class App extends Component {
@@ -20,30 +21,9 @@ class App extends Component {
         gender: '',
         bodyType: '',
         bodySize: '',
-        brands:[],
         takingQuiz: false,
+        question: null,
     }
-  }
-
-  componentDidMount() {
-    let brands = [];
-    axios
-    .get(`${API_URL}/acme`)
-    .then(data => {
-      brands.push({acme: data.data})
-    })
-    axios
-    .get(`${API_URL}/bongo`)
-    .then(data => {
-      brands.push({bongo: data.data})
-    })
-    axios
-    .get(`${API_URL}/delta`)
-    .then(data => {
-      brands.push({delta: data.data})
-      this.setState({brands: brands})
-    })
-    .catch(err => console.log(err));
   }
 
   handleChange = e => {
@@ -51,70 +31,82 @@ class App extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
-  openModal = () => {
-    this.setState({ takingQuiz: true });
-  }
+  handleClick = () => {
+    let currentQuestion = parseInt(this.state.question);
+    if (currentQuestion === 4) {
+      this.setState({takingQuiz: false})
+      this.setState({question: null})
+    } else if (!currentQuestion) {
+      currentQuestion = '1'
+      this.setState({takingQuiz: true})
+      this.setState({question: currentQuestion})
+    } else if (currentQuestion >= 1 && currentQuestion < 4) {
+      currentQuestion = currentQuestion + 1;
+      this.setState({question: currentQuestion.toString()})
+    }
 
-  hideModal = () => {
-    this.setState({ takingQuiz: false });
   }
-
 
   render() {
-   const { firstName, lastName, gender, bodyType, bodySize, brands } = this.state;
+   const { firstName, lastName, gender, bodyType, bodySize, question, takingQuiz } = this.state;
    const { maleBodyTypes, femaleBodyTypes } = this.props;
 
     return (
       <div className="App">
-      <HeaderComponent />
-    <Switch>
-      <Route exact path='/profile/size' render={(routeProps) =>
-        <SizeComponent {...routeProps}
-          firstName={firstName}
-          bodySize={bodySize}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          question={4}
-          />}
-      />
-      <Route exact path='/profile/body-type' render={(routeProps) =>
-        <BodyTypeComponent {...routeProps}
-          firstName={firstName}
-          gender={gender}
-          bodyTypes={this.state.gender === 'male' ? maleBodyTypes : femaleBodyTypes}
-          handleChange={this.handleChange}
-          question={3}
-          />}
-      />
-      <Route exact path='/profile/gender' render={(routeProps) =>
-        <GenderComponent {...routeProps}
-          firstName={firstName}
-          gender={gender}
-          handleChange={this.handleChange}
-          question={2}
-          />}
-      />
-      <Route exact path='/profile' render={(routeProps) =>
-        <NameComponent {...routeProps}
-          firstName={firstName}
-          lastName={lastName}
-          handleChange={this.handleChange}
-          question={1}
-          />}
-      />
-      <Route exact path='/results' render={(routeProps) =>
-        <ResultsComponent {...routeProps}
-          firstName={firstName}
-          lastName={lastName}
-          gender={gender}
-          bodyTypes={this.state.gender === 'male' ? maleBodyTypes : femaleBodyTypes}
-          bodySize={bodySize}
-          brands={brands}
-          getResult = {this.getResult}
-          />}
-      />
-      <Route exact path='/' render={(routeProps) => <WelcomeComponent {...routeProps} hideModal={this.hideModal} openModal={this.openModal}/>} />
-  </Switch>
+      <HeaderComponent takingQuiz={takingQuiz} handleClick={this.handleClick}/>
+      {
+          takingQuiz ?
+            <ProgressBar question={question}/>
+        :
+          ''
+      }
+      <Switch>
+        <Route exact path='/profile/size' render={(routeProps) =>
+          <SizeComponent {...routeProps}
+            firstName={firstName}
+            bodySize={bodySize}
+            handleChange={this.handleChange}
+            handleClick={this.handleClick}
+            />}
+        />
+        <Route exact path='/profile/body-type' render={(routeProps) =>
+          <BodyTypeComponent {...routeProps}
+            firstName={firstName}
+            gender={gender}
+            bodyType={bodyType}
+            bodyTypes={this.state.gender === 'male' ? maleBodyTypes : femaleBodyTypes}
+            handleChange={this.handleChange}
+            handleClick={this.handleClick}
+            />}
+        />
+        <Route exact path='/profile/gender' render={(routeProps) =>
+          <GenderComponent {...routeProps}
+            firstName={firstName}
+            gender={gender}
+            handleChange={this.handleChange}
+            handleClick={this.handleClick}
+            />}
+        />
+        <Route exact path='/profile' render={(routeProps) =>
+          <NameComponent {...routeProps}
+            firstName={firstName}
+            lastName={lastName}
+            handleChange={this.handleChange}
+            handleClick={this.handleClick}
+            />}
+        />
+        <Route exact path='/results' render={(routeProps) =>
+          <ResultsComponent {...routeProps}
+            firstName={firstName}
+            lastName={lastName}
+            gender={gender}
+            bodyType={bodyType}
+            bodySize={bodySize}
+            getResult = {this.getResult}
+            />}
+        />
+        <Route exact path='/' render={(routeProps) => <WelcomeComponent {...routeProps}  handleClick={this.handleClick} />} />
+    </Switch>
       </div>
     );
   }

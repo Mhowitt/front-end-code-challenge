@@ -7,7 +7,7 @@ const BodyTypeComponent = props => {
   return (
     <div>
       <h2>Now tell us what your body type is!</h2>
-      <ProgressBar question={props.question}/>
+      {/* <ProgressBar question={props.question}/> */}
       <div className="card-container">
         <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}}>
           {/* {props.bodyTypes} */}
@@ -15,7 +15,7 @@ const BodyTypeComponent = props => {
           {/* {props.bodyTypes.map((bodyType) => <BodyTypeProfile bodyType={bodyType} onClick={props.handleChange} key={bodyType.type} value={bodyType.type}/>)} */}
         </div>
         <div className="next-button">
-          <Link to="/profile/size"><div className="arrow"></div></Link>
+          <Link to="/profile/size"><div className="arrow" onClick={props.handleClick}></div></Link>
         </div>
       </div>
 
