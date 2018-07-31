@@ -15,7 +15,7 @@ produce for this challenge in your personal portfolio.
 
 If you are successful then we'll schedule you for an interview and will use what you produce for this challenge as a starting point for our discussions.
 
-Cheers!  
+Cheers!
 The Avametric Team
 
 ## Overview
@@ -25,7 +25,7 @@ We have created a simple [NodeJS](https://nodejs.org) application which:
 1. Bundles your source code and serves it through http://localhost:3000/
 2. Provides **mock** data through http://localhost:3000/api/
 
-Your challenge is to build something interesting that makes use of the mock data provided. 
+Your challenge is to build something interesting that makes use of the mock data provided.
 
 You can choose whichever technologies you like to create this application. Feel
 free to make changes to _any_ of the files in this repository, or to swap out
@@ -129,6 +129,18 @@ http://localhost:3000/api/partners/acme/bodies/female
 ```
 
 ## Your Notes Go Here
+
+Notes on take home Avametric challenge.
+
+I did find one bug - you need to enable cors on the backend so we can make get resquests to the server.
+
+Improvements I would make if I had more time:
+- A lot of refactoring especially in the component did mount sections of the results. I brute forced it in this take home due to time.
+- I wanted to tailor the recommendations and information on each brand a lot more than I had time for.
+- I had a lot of other UI and design ideas. especially transitions which I wanted to implement.
+
+
+Things I thought about doing:
 
 ## License
 
