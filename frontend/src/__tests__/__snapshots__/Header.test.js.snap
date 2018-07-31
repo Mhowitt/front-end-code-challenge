@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HeaderComponent /> matches snapshot 1`] = `
+<div
+  className="header-container"
+>
+  <div
+    className="title-header"
+  >
+    <Link
+      replace={false}
+      to="/"
+    >
+      RightFit
+    </Link>
+  </div>
+  <div
+    className="button-header"
+  >
+    <Link
+      replace={false}
+      to="/profile"
+    >
+      <button
+        className="start-quiz"
+      >
+        Take our Quiz
+      </button>
+    </Link>
+  </div>
+</div>
+`;

@@ -1,27 +1,29 @@
 .loading-container,
-  .loading {
-    height: 100px;
-    position: relative;
-    width: 100px;
-    border-radius: 100%;
-  }
-
-.loading-container { margin: 40px auto }
-
 .loading {
-    border: 2px solid transparent;
-    border-color: transparent aqua transparent aqua;
-    animation: circular-motion 1.5s linear 0s infinite normal;
-    transform-origin: 50% 50%;
+  height: 100px;
+  position: relative;
+  width: 100px;
+  border-radius: 100%;
 }
 
-  .loading-container:hover .loading {
-      border-color: transparent #E45635 transparent #E45635;
-  }
-  .loading-container:hover .loading,
-  .loading-container .loading {
-      transition: all 0.5s ease-in-out;
-  }
+.loading-container {
+  margin: 40px auto;
+}
+
+.loading {
+  border: 2px solid transparent;
+  border-color: transparent #6d7993 transparent #6d7993;
+  animation: circular-motion 1.5s linear 0s infinite normal;
+  transform-origin: 50% 50%;
+}
+
+.loading-container:hover .loading {
+  border-color: transparent #96858f transparent #96858f;
+}
+.loading-container:hover .loading,
+.loading-container .loading {
+  transition: all 0.5s ease-in-out;
+}
 
 #loading-text {
   position: absolute;
@@ -31,7 +33,6 @@
 }
 
 @keyframes circular-motion {
-
   0% {
     transform: rotate(0deg);
   }
@@ -39,7 +40,4 @@
   100% {
     transform: rotate(360deg);
   }
-
-
-
 }

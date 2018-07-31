@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SizeComponent /> matches snapshot 1`] = `
+<div>
+  <h2>
+    Now tell us what your body type is!
+  </h2>
+  <div
+    className="card-container"
+  >
+    <div
+      className="size-container"
+    >
+      <Link
+        replace={false}
+        to="/results"
+      >
+        <button
+          className="size-button"
+          value="petite"
+        >
+          Petite
+        </button>
+      </Link>
+      <Link
+        replace={false}
+        to="/results"
+      >
+        <button
+          className="size-button"
+          value="average"
+        >
+          Average
+        </button>
+      </Link>
+      <Link
+        replace={false}
+        to="/results"
+      >
+        <button
+          className="size-button"
+          value="tall"
+        >
+          Tall
+        </button>
+      </Link>
+    </div>
+  </div>
+</div>
+`;

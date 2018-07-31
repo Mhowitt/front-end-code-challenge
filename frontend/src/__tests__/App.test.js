@@ -1,11 +1,13 @@
 import React from 'react';
-import WelcomeComponent from '../components/WelcomeComponent/WelcomeComponent.jsx';
-import HeaderComponent from '../components/HeaderComponent/HeaderComponent.jsx';
-import NameComponent from '../components/NameComponent/NameComponent.jsx';
-import GenderComponent from '../components/GenderComponent/GenderComponent.jsx';
+import WelcomeComponent from '../components/WelcomeComponent/Welcome.jsx';
+import HeaderComponent from '../components/HeaderComponent/Header.jsx';
+import NameComponent from '../components/NameComponent/Name.jsx';
+import GenderComponent from '../components/GenderComponent/Gender.jsx';
 import ProgressBar from '../components/ProgressBar/ProgressBar.jsx';
-import BodyTypeComponent from '../components/BodyTypeComponents/BodyTypeComponent.jsx';
-import SizeComponent from '../components/SizeComponent/SizeComponent.jsx';
+import BodyTypeComponent from '../components/BodyTypeComponents/BodyType.jsx';
+import SizeComponent from '../components/SizeComponent/Size.jsx';
+import BodyTypeProfile from '../components/BodyTypeComponents/BodyTypeProfile.jsx';
+import ResultsComponent from '../components/ResultsComponents/Results.jsx';
 import App from '../components/App/App.js';
 import toJson from 'enzyme-to-json'; // for snapshotting the component
 import { shallow, mount } from 'enzyme';
@@ -24,12 +26,6 @@ describe('<App />', () => {
 //testing all dumb components w/ shallow
 describe('<WelcomeComponent />', () => {
   let wrapper;
-
-  // it('should detect state and all h2s on mounting', () => {
-  //   wrapper = mount(<App />);
-  //   expect(wrapper.state('takingQuiz')).toBe('false');
-  // });
-
   it('renders without crashing', () => {
     wrapper = shallow(<WelcomeComponent />);
   });
@@ -52,7 +48,7 @@ describe('<ProgressBar />', () => {
 describe('<NameComponent />', () => {
   let wrapper;
   it('renders without crashing', () => {
-    wrapper = shallow(<NameComponent />);
+    wrapper = shallow(<NameComponent firstName="test" />);
   });
 });
 
@@ -66,7 +62,22 @@ describe('<GenderComponent />', () => {
 describe('<BodyTypeComponent />', () => {
   let wrapper;
   it('renders without crashing', () => {
-    wrapper = shallow(<BodyTypeComponent />);
+    wrapper = shallow(<BodyTypeComponent bodyTypes={['test-1', 'test-2']} />);
+  });
+});
+
+describe('<BodyTypeProfile />', () => {
+  let wrapper;
+  it('renders without crashing', () => {
+    wrapper = shallow(
+      <BodyTypeProfile
+        bodyType={{
+          description: 'test',
+          pic:
+            'https://tryon-production.s3.amazonaws.com/uploads/asset/file_asset/22280/d78eba93-5675-4a08-b825-8d6a69fb3c5e.png'
+        }}
+      />
+    );
   });
 });
 
@@ -74,5 +85,12 @@ describe('<SizeComponent />', () => {
   let wrapper;
   it('renders without crashing', () => {
     wrapper = shallow(<SizeComponent />);
+  });
+});
+
+describe('<ResultComponent />', () => {
+  let wrapper;
+  it('renders without crashing', () => {
+    wrapper = shallow(<ResultsComponent />);
   });
 });

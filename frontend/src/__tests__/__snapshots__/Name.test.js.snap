@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NameComponent /> matches snapshot 1`] = `
+<div>
+  <h2>
+    Let's learn a bit more about you!
+  </h2>
+  <div
+    className="card-container"
+  >
+    <div
+      className="login_field"
+    >
+      <input
+        className="login_input"
+        name="firstName"
+        placeholder="What's your Name"
+        type="text"
+        value="test"
+      />
+    </div>
+    <div
+      className="button-container"
+    >
+      <Link
+        replace={false}
+        to="/profile/gender"
+      >
+        <button
+          className="name-button"
+        >
+           
+          Let's get started
+           
+        </button>
+      </Link>
+    </div>
+  </div>
+</div>
+`;

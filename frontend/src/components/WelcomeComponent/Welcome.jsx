@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './WelcomeComponent.css';
+import './Welcome.css';
 
-const WelcomeComponent = props => {
+const Welcome = props => {
   return (
     <div>
       <h2>Your Perfect Clothing Brand</h2>
@@ -25,4 +25,4 @@ const WelcomeComponent = props => {
   );
 };
 
-export default WelcomeComponent;
+export default Welcome;

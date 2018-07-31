@@ -3,8 +3,6 @@ import './IndividualResults.css';
 
 class IndividualResultComponent extends Component {
   render() {
-    console.log('BRAND IS', this.props.brand);
-    console.log('PARTNER IS', this.props.partner);
     return (
       <div className="result-card">
         <div>{this.props.brand.name}</div>

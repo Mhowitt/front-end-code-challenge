@@ -2,7 +2,7 @@ import React from 'react';
 import BodyTypeProfile from './BodyTypeProfile';
 import './BodyTypeProfile.css';
 
-const BodyTypeComponent = props => {
+const BodyType = props => {
   return (
     <div>
       <h2>Now tell us what your body type is!</h2>
@@ -12,18 +12,15 @@ const BodyTypeComponent = props => {
             <BodyTypeProfile
               key={bodyType.type}
               bodyType={bodyType}
-              handleChange={props.handleChange}
+              handleClick={props.handleClick}
               name="bodyType"
               value={bodyType.type}
             />
           ))}
         </div>
-        {/* <div className="next-button">
-          <Link to="/profile/size"><div className="arrow" onClick={props.handleClick}></div></Link>
-        </div> */}
       </div>
     </div>
   );
 };
 
-export default BodyTypeComponent;
+export default BodyType;

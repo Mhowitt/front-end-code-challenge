@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './GenderComponent.css';
+import './Gender.css';
 
-const GenderComponent = props => {
+const Gender = props => {
   return (
     <div>
       <h2>Hi {props.firstName}! It's great to have you! What's your gender?</h2>
@@ -35,13 +35,9 @@ const GenderComponent = props => {
             </Link>
           </div>
         </div>
-        {/* <div className="next-button">
-
-          <Link to="/profile/body-type"><div className="arrow" onClick={props.handleClick} ></div></Link>
-        </div> */}
       </div>
     </div>
   );
 };
 
-export default GenderComponent;
+export default Gender;

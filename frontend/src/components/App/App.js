@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import WelcomeComponent from '../WelcomeComponent/WelcomeComponent.jsx';
+import Welcome from '../WelcomeComponent/Welcome.jsx';
 import ProgressBar from '../ProgressBar/ProgressBar.jsx';
-import NameComponent from '../NameComponent/NameComponent.jsx';
-import GenderComponent from '../GenderComponent/GenderComponent.jsx';
-import BodyTypeComponent from '../BodyTypeComponents/BodyTypeComponent.jsx';
-import SizeComponent from '../SizeComponent/SizeComponent.jsx';
-import HeaderComponent from '../HeaderComponent/HeaderComponent';
-import ResultsComponent from '../ResultsComponents/ResultsComponent.jsx';
+import Name from '../NameComponent/Name.jsx';
+import Gender from '../GenderComponent/Gender.jsx';
+import BodyType from '../BodyTypeComponents/BodyType.jsx';
+import Size from '../SizeComponent/Size.jsx';
+import Header from '../HeaderComponent/Header.jsx';
+import Results from '../ResultsComponents/Results.jsx';
 import './App.css';
 
 class App extends Component {
@@ -43,8 +43,9 @@ class App extends Component {
         question: currentQuestion
         // [e.target.name]: e.target.value
       });
-    } else if (+currentQuestion >= 1 && +currentQuestion < 4) {
+    } else {
       currentQuestion = +currentQuestion + 1;
+      debugger;
       this.setState({
         question: currentQuestion,
         [e.target.name]: e.target.value
@@ -72,7 +73,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <HeaderComponent takingQuiz={takingQuiz} goHome={this.goHome} />
+        <Header takingQuiz={takingQuiz} goHome={this.goHome} />
         {takingQuiz ? (
           <ProgressBar
             question={question}
@@ -89,11 +90,10 @@ class App extends Component {
             exact
             path="/profile/size"
             render={routeProps => (
-              <SizeComponent
+              <Size
                 {...routeProps}
                 firstName={firstName}
                 bodySize={bodySize}
-                handleChange={this.handleChange}
                 handleClick={this.handleClick}
               />
             )}
@@ -102,7 +102,7 @@ class App extends Component {
             exact
             path="/profile/body-type"
             render={routeProps => (
-              <BodyTypeComponent
+              <BodyType
                 {...routeProps}
                 firstName={firstName}
                 gender={gender}
@@ -110,7 +110,6 @@ class App extends Component {
                 bodyTypes={
                   this.state.gender === 'male' ? maleBodyTypes : femaleBodyTypes
                 }
-                handleChange={this.handleChange}
                 handleClick={this.handleClick}
               />
             )}
@@ -119,11 +118,10 @@ class App extends Component {
             exact
             path="/profile/gender"
             render={routeProps => (
-              <GenderComponent
+              <Gender
                 {...routeProps}
                 firstName={firstName}
                 gender={gender}
-                handleChange={this.handleChange}
                 handleClick={this.handleClick}
               />
             )}
@@ -132,7 +130,7 @@ class App extends Component {
             exact
             path="/profile"
             render={routeProps => (
-              <NameComponent
+              <Name
                 {...routeProps}
                 firstName={firstName}
                 handleChange={this.handleChange}
@@ -144,7 +142,7 @@ class App extends Component {
             exact
             path="/results"
             render={routeProps => (
-              <ResultsComponent
+              <Results
                 {...routeProps}
                 firstName={firstName}
                 gender={gender}
@@ -157,10 +155,7 @@ class App extends Component {
             exact
             path="/"
             render={routeProps => (
-              <WelcomeComponent
-                {...routeProps}
-                handleClick={this.handleClick}
-              />
+              <Welcome {...routeProps} handleClick={this.handleClick} />
             )}
           />
         </Switch>

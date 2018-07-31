@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './NameComponent.css';
+import './Name.css';
 
-const NameComponent = props => {
+const Name = props => {
   return (
     <div>
       <h2>Let's learn a bit more about you!</h2>
@@ -34,4 +34,4 @@ const NameComponent = props => {
   );
 };
 
-export default NameComponent;
+export default Name;

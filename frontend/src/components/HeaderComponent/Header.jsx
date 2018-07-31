@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './HeaderComponent.css';
+import './Header.css';
 
-const HeaderComponent = props => {
+const Header = props => {
   return (
     <div className="header-container">
       <div className="title-header">
@@ -25,4 +25,4 @@ const HeaderComponent = props => {
   );
 };
 
-export default HeaderComponent;
+export default Header;

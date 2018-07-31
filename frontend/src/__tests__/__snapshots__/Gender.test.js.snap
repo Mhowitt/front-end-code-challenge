@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GenderComponent /> matches snapshot 1`] = `
+<div>
+  <h2>
+    Hi 
+    ! It's great to have you! What's your gender?
+  </h2>
+  <div
+    className="card-container"
+  >
+    <div
+      className="card"
+    >
+      <div
+        className="gender-container"
+      >
+        <div
+          className="gender-img female"
+        />
+        <Link
+          replace={false}
+          to="/profile/body-type"
+        >
+          <button
+            className="gender-button"
+            name="gender"
+            value="female"
+          >
+            I identify as a Female
+          </button>
+        </Link>
+      </div>
+      <div
+        className="gender-container"
+      >
+        <div
+          className="gender-img male"
+        />
+        <Link
+          replace={false}
+          to="/profile/body-type"
+        >
+          <button
+            className="gender-button"
+            name="gender"
+            value="male"
+          >
+            I identify as a Male
+          </button>
+        </Link>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../config.js';
 import LoadingComponent from '../LoadingComponent/LoadingComponent.jsx';
-import IndividualResultComponent from './IndividualResultComponent.jsx';
+import IndividualResult from './IndividualResult.jsx';
 
-class ResultsComponent extends Component {
+class Results extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -83,7 +83,6 @@ class ResultsComponent extends Component {
   };
 
   render() {
-    console.log('RENDERING', this.state.partners);
     const { brands } = this.state;
     return (
       <div>
@@ -94,13 +93,14 @@ class ResultsComponent extends Component {
             <h2>We recommend these brands for your unique amazingness</h2>
             <div className="card-container">
               <div>
-                User Profile:
+                Your Profile:
                 <p>Gender: {this.props.gender}</p>
                 <p>Body Type: {this.props.bodyType}</p>
+                <p>Size: {this.props.bodySize}</p>
               </div>
               <div className="recommendation-results">
                 {this.state.partners.map((partner, idx) => (
-                  <IndividualResultComponent
+                  <IndividualResult
                     key={idx}
                     partner={partner}
                     brand={brands[idx]}
@@ -115,4 +115,4 @@ class ResultsComponent extends Component {
   }
 }
 
-export default ResultsComponent;
+export default Results;

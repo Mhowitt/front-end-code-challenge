@@ -18,7 +18,7 @@ const BodyTypeProfile = props => {
             onClick={props.handleClick}
             className="body-button"
             name="bodyType"
-            value={props.bodyType.type}
+            value={props.value}
           >
             Is this you?
           </button>
