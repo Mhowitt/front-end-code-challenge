@@ -1,13 +1,13 @@
 .progress-bar-container {
-  height: 15px;
+  height: 16px;
   width: 70%;
   border-radius: 10px;
   margin: 1% auto;
-  border: 2px solid #96858F;
+  border: 2px solid #96858f;
 }
 
 .progress-bar {
-  height: 12px;
-  background-color: #96858F;
+  height: 13px;
+  background-color: #96858f;
   border-radius: 10px;
 }

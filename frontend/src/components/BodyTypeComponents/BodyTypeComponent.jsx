@@ -1,22 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import BodyTypeProfile from './BodyTypeProfile';
-import ProgressBar from '../ProgressBar/ProgressBar.jsx';
+import './BodyTypeProfile.css';
 
 const BodyTypeComponent = props => {
   return (
     <div>
       <h2>Now tell us what your body type is!</h2>
-      {/* <ProgressBar question={props.question}/> */}
       <div className="card-container">
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between'
-          }}
-        >
-          {/* {props.bodyTypes} */}
+        <div className="main-body-container">
           {props.bodyTypes.map(bodyType => (
             <BodyTypeProfile
               key={bodyType.type}
@@ -26,7 +17,6 @@ const BodyTypeComponent = props => {
               value={bodyType.type}
             />
           ))}
-          {/* {props.bodyTypes.map((bodyType) => <BodyTypeProfile bodyType={bodyType} onClick={props.handleChange} key={bodyType.type} value={bodyType.type}/>)} */}
         </div>
         {/* <div className="next-button">
           <Link to="/profile/size"><div className="arrow" onClick={props.handleClick}></div></Link>

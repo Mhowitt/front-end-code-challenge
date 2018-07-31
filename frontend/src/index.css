@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+p {
+  color: #6d7993;
+}
 
 body {
   margin: 0;

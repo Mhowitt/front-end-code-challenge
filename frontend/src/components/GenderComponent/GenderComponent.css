@@ -22,6 +22,10 @@
   background-image: url('../../man.png');
 }
 
+a {
+  align-self: flex-start;
+}
+
 .gender-button {
   align-self: flex-start;
   width: auto;

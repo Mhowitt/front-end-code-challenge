@@ -1,14 +1,26 @@
 import React from 'react';
-import WelcomeComponent from '../components/WelcomeComponent.jsx';
-import HeaderComponent from '../components/HeaderComponent/HeaderComponent.jsx'
-import NameComponent from '../components/NameComponent/NameComponent.jsx'
-import GenderComponent from '../components/GenderComponent/GenderComponent.jsx'
-import ProgressBar from '../components/ProgressBar/ProgressBar.jsx'
-import BodyTypeComponent from '../components/BodyTypeComponents/BodyTypeComponent.jsx'
-import SizeComponent from '../components/SizeComponent.jsx'
+import WelcomeComponent from '../components/WelcomeComponent/WelcomeComponent.jsx';
+import HeaderComponent from '../components/HeaderComponent/HeaderComponent.jsx';
+import NameComponent from '../components/NameComponent/NameComponent.jsx';
+import GenderComponent from '../components/GenderComponent/GenderComponent.jsx';
+import ProgressBar from '../components/ProgressBar/ProgressBar.jsx';
+import BodyTypeComponent from '../components/BodyTypeComponents/BodyTypeComponent.jsx';
+import SizeComponent from '../components/SizeComponent/SizeComponent.jsx';
+import App from '../components/App/App.js';
 import toJson from 'enzyme-to-json'; // for snapshotting the component
 import { shallow, mount } from 'enzyme';
+import { MemoryRouter } from 'react-router-dom';
 
+describe('<App />', () => {
+  let wrapper;
+  it('renders', () => {
+    wrapper = mount(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
+  });
+});
 //testing all dumb components w/ shallow
 describe('<WelcomeComponent />', () => {
   let wrapper;
@@ -18,50 +30,49 @@ describe('<WelcomeComponent />', () => {
   //   expect(wrapper.state('takingQuiz')).toBe('false');
   // });
 
-    it('renders without crashing', () => {
-      wrapper = shallow(<WelcomeComponent/>);
-    });
-})
+  it('renders without crashing', () => {
+    wrapper = shallow(<WelcomeComponent />);
+  });
+});
 
 describe('<HeaderComponent />', () => {
   let wrapper;
-    it('renders without crashing', () => {
-      wrapper = shallow(<HeaderComponent/>);
-    });
-})
+  it('renders without crashing', () => {
+    wrapper = shallow(<HeaderComponent />);
+  });
+});
 
 describe('<ProgressBar />', () => {
   let wrapper;
-    it('renders without crashing', () => {
-      wrapper = shallow(<ProgressBar/>);
-    });
-})
+  it('renders without crashing', () => {
+    wrapper = shallow(<ProgressBar />);
+  });
+});
 
 describe('<NameComponent />', () => {
   let wrapper;
-    it('renders without crashing', () => {
-      wrapper = shallow(<NameComponent />);
-    });
-})
+  it('renders without crashing', () => {
+    wrapper = shallow(<NameComponent />);
+  });
+});
 
 describe('<GenderComponent />', () => {
   let wrapper;
-    it('renders without crashing', () => {
-      wrapper = shallow(<GenderComponent />);
-    });
-})
+  it('renders without crashing', () => {
+    wrapper = shallow(<GenderComponent />);
+  });
+});
 
 describe('<BodyTypeComponent />', () => {
   let wrapper;
-    it('renders without crashing', () => {
-      wrapper = shallow(<BodyTypeComponent />);
-    });
-})
+  it('renders without crashing', () => {
+    wrapper = shallow(<BodyTypeComponent />);
+  });
+});
 
 describe('<SizeComponent />', () => {
   let wrapper;
-    it('renders without crashing', () => {
-      wrapper = shallow(<SizeComponent />);
-    });
-})
-
+  it('renders without crashing', () => {
+    wrapper = shallow(<SizeComponent />);
+  });
+});

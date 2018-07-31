@@ -91,8 +91,13 @@ class ResultsComponent extends Component {
           <LoadingComponent />
         ) : (
           <div>
-            <h2>We recommend these brands for you</h2>
+            <h2>We recommend these brands for your unique amazingness</h2>
             <div className="card-container">
+              <div>
+                User Profile:
+                <p>Gender: {this.props.gender}</p>
+                <p>Body Type: {this.props.bodyType}</p>
+              </div>
               <div className="recommendation-results">
                 {this.state.partners.map((partner, idx) => (
                   <IndividualResultComponent

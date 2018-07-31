@@ -19,3 +19,8 @@ figure {
   width: 10vw;
   height: 300px;
 }
+.main-body-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

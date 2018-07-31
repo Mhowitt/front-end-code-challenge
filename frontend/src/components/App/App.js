@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import axios from 'axios';
-import { API_URL } from '../../config.js';
-import WelcomeComponent from '../WelcomeComponent';
-import ProgressBar from '../ProgressBar/ProgressBar';
+import WelcomeComponent from '../WelcomeComponent/WelcomeComponent.jsx';
+import ProgressBar from '../ProgressBar/ProgressBar.jsx';
 import NameComponent from '../NameComponent/NameComponent.jsx';
 import GenderComponent from '../GenderComponent/GenderComponent.jsx';
 import BodyTypeComponent from '../BodyTypeComponents/BodyTypeComponent.jsx';
-import SizeComponent from '../SizeComponent';
+import SizeComponent from '../SizeComponent/SizeComponent.jsx';
 import HeaderComponent from '../HeaderComponent/HeaderComponent';
 import ResultsComponent from '../ResultsComponents/ResultsComponent.jsx';
 import './App.css';
@@ -17,7 +15,6 @@ class App extends Component {
     super(props);
     this.state = {
       firstName: '',
-      lastName: '',
       gender: '',
       bodyType: '',
       bodySize: '',
@@ -43,8 +40,8 @@ class App extends Component {
       currentQuestion = '1';
       this.setState({
         takingQuiz: true,
-        question: currentQuestion,
-        [e.target.name]: e.target.value
+        question: currentQuestion
+        // [e.target.name]: e.target.value
       });
     } else if (+currentQuestion >= 1 && +currentQuestion < 4) {
       currentQuestion = +currentQuestion + 1;
@@ -55,10 +52,16 @@ class App extends Component {
     }
   };
 
+  goHome = e => {
+    this.setState({
+      takingQuiz: false,
+      question: null
+    });
+  };
+
   render() {
     const {
       firstName,
-      lastName,
       gender,
       bodyType,
       bodySize,
@@ -69,11 +72,18 @@ class App extends Component {
 
     return (
       <div className="App">
-        <HeaderComponent
-          takingQuiz={takingQuiz}
-          handleClick={this.handleClick}
-        />
-        {takingQuiz ? <ProgressBar question={question} /> : ''}
+        <HeaderComponent takingQuiz={takingQuiz} goHome={this.goHome} />
+        {takingQuiz ? (
+          <ProgressBar
+            question={question}
+            firstName={firstName}
+            gender={gender}
+            bodySize={bodySize}
+            bodySize={bodySize}
+          />
+        ) : (
+          ''
+        )}
         <Switch>
           <Route
             exact
@@ -125,7 +135,6 @@ class App extends Component {
               <NameComponent
                 {...routeProps}
                 firstName={firstName}
-                lastName={lastName}
                 handleChange={this.handleChange}
                 handleClick={this.handleClick}
               />
@@ -138,11 +147,9 @@ class App extends Component {
               <ResultsComponent
                 {...routeProps}
                 firstName={firstName}
-                lastName={lastName}
                 gender={gender}
                 bodyType={bodyType}
                 bodySize={bodySize}
-                getResult={this.getResult}
               />
             )}
           />

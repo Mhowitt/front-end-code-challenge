@@ -1,23 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import'./NameComponent.css'
-import ProgressBar from '../ProgressBar/ProgressBar.jsx'
+import './NameComponent.css';
 
 const NameComponent = props => {
   return (
     <div>
-      <h2>Let's Learn a bit more about you!</h2>
-      {/* <ProgressBar question={props.question}/> */}
-      <div className="card-container" >
+      <h2>Let's learn a bit more about you!</h2>
+      <div className="card-container">
         <div className="login_field">
-        <input type="text" name="firstName" className="login_input" onChange={props.handleChange} value={props.firstName} placeholder="What's your Name" />
+          <input
+            type="text"
+            name="firstName"
+            className="login_input"
+            onChange={props.handleChange}
+            value={props.firstName}
+            placeholder="What's your Name"
+          />
         </div>
-        <div className="next-button">
-          <Link to="/profile/gender"><div className="arrow" onClick={props.handleClick} ></div></Link>
-        </div>
+        {props.firstName.length === 0 ? (
+          ''
+        ) : (
+          <div className="button-container">
+            <Link to="/profile/gender">
+              <button onClick={props.handleClick} className="name-button">
+                {' '}
+                Let's get started{' '}
+              </button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default NameComponent;
