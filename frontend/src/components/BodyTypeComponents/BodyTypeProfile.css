@@ -3,9 +3,19 @@
   width: auto;
   height: 40px;
   border-radius: 10px;
-  background-color: #96858F;
+  background-color: #96858f;
   color: rgb(254, 252, 252);
   font-size: 14px;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+figure > img {
+  width: 100px;
+  height: 200px;
+}
+
+figure {
+  width: 10vw;
+  height: 300px;
 }

@@ -15,11 +15,11 @@
 }
 
 .female {
-  background-image: url("../../woman.png");
+  background-image: url('../../woman.png');
 }
 
 .male {
-  background-image: url("../../man.png");
+  background-image: url('../../man.png');
 }
 
 .gender-button {
@@ -27,7 +27,7 @@
   width: auto;
   height: 40px;
   border-radius: 10px;
-  background-color: #96858F;
+  background-color: #96858f;
   color: rgb(254, 252, 252);
   font-size: 14px;
   text-transform: uppercase;
@@ -35,6 +35,12 @@
   bottom: 0;
   opacity: 1;
   left: 5%;
+}
+
+.gender-button:active,
+.gender-button:visited {
+  background-color: rgb(254, 252, 252);
+  color: #96858f;
 }
 
 .card {
