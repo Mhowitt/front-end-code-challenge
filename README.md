@@ -139,6 +139,11 @@ http://localhost:3000/api/partners/acme/bodies/female
 
 ####Miranda's Notes on take home Avametric challenge.
 
+####Changes made to original code
+
+- I needed to enable cors on the backend so I could make http requests to the server.
+- I decided to go with create-react-app's webpack.
+
 ####To get it started:
 
 - fork this repo to your github.
@@ -158,12 +163,10 @@ http://localhost:3000/api/partners/acme/bodies/female
 - Jest and Enzyme for testing
 - Axios for making api calls
 
-I did find one bug - I needed to enable cors on the backend so I could make http requests to the server.
-
 ####Here are things I would have done if this were a real on-the-job project / if I had more time:
 
 - refactor some of the component did mount (initialization)
-- further tailor the brand recommendations (for size and specific measurements(bra size))
+- further tailor the brand recommendations (for size and specific measurements(bra size) along with more information on the companys and why work for the users body)
 - use a state management system like redux to centralize the app state and make it easier to transition between questions
 - fancier UX, especially transitions
 - more testing
