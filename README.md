@@ -1,5 +1,6 @@
-Avametric Front End Development Challenge
-========================================
+## My Notes (Miranda Howitt) are in the Original Note Section of this README.
+
+# Avametric Front End Development Challenge
 
 Hi there!
 
@@ -22,8 +23,8 @@ The Avametric Team
 
 We have created a simple [NodeJS](https://nodejs.org) application which:
 
-1. Bundles your source code and serves it through http://localhost:3000/
-2. Provides **mock** data through http://localhost:3000/api/
+1.  Bundles your source code and serves it through http://localhost:3000/
+2.  Provides **mock** data through http://localhost:3000/api/
 
 Your challenge is to build something interesting that makes use of the mock data provided.
 
@@ -33,20 +34,20 @@ any of the technologies we've provided. It's your party. 😎
 
 ## Prerequisites
 
-1. You will need a basic understanding of [Git](https://git-scm.com/) source
-   control management
-2. You will need a [GitHub](https://github.com/) account
-3. [NodeJS](http://nodejs.org/download/) should be installed on your machine
-4. You will need to be familiar with making data requests in web applications
+1.  You will need a basic understanding of [Git](https://git-scm.com/) source
+    control management
+2.  You will need a [GitHub](https://github.com/) account
+3.  [NodeJS](http://nodejs.org/download/) should be installed on your machine
+4.  You will need to be familiar with making data requests in web applications
 
 ## Getting Started
 
-1. Fork [this repository](https://github.com/avametric/front-end-code-challenge)
-   to your GitHub account
-2. Clone *your* fork to your development machine
-2. Install the package dependencies by running `npm install` (or `yarn` if you prefer)
-3. Start the application server by running `npm start`
-4. Open your browser to http://localhost:3000
+1.  Fork [this repository](https://github.com/avametric/front-end-code-challenge)
+    to your GitHub account
+2.  Clone _your_ fork to your development machine
+3.  Install the package dependencies by running `npm install` (or `yarn` if you prefer)
+4.  Start the application server by running `npm start`
+5.  Open your browser to http://localhost:3000
 
 ## Submission
 
@@ -99,21 +100,26 @@ proxied to an express server running on port 3001 that servs the contents of
 the `data/` folder. You can make HTTP `GET` requests against the following endpoints:
 
 #### GET /api/partners
+
 Returns an array of partners that can be searched for bodies. For the purposes
 of this challenge there are only 3 partners available.
 
 #### GET /api/partners/:partnerId
+
 Returns an object representing the partner with the given `:partnerId`.
 
 For example:
+
 ```
 http://localhost:3000/api/partners/acme/
 ```
 
 #### GET /api/partners/:partnerId/bodies
+
 Returns an array bodies grouped by gender contained within the partner.
 
 For example:
+
 ```
 http://localhost:3000/api/partners/acme/bodies
 ```
@@ -124,23 +130,47 @@ Similar to `/api/partners/:partnerId/bodies`, but returns only a single gender b
 object for the `:genderId` given.
 
 For Example:
+
 ```
 http://localhost:3000/api/partners/acme/bodies/female
 ```
 
 ## Your Notes Go Here
 
-Notes on take home Avametric challenge.
+####Miranda's Notes on take home Avametric challenge.
 
-I did find one bug - you need to enable cors on the backend so we can make get resquests to the server.
+####To get it started:
 
-Improvements I would make if I had more time:
-- A lot of refactoring especially in the component did mount sections of the results. I brute forced it in this take home due to time.
-- I wanted to tailor the recommendations and information on each brand a lot more than I had time for.
-- I had a lot of other UI and design ideas. especially transitions which I wanted to implement.
+- fork this repo to your github.
+- clone onto your local machine.
+- cd into the main folder.
+- run `npm install` to install packages for the api.
+- In one terminal tab, cd into the api folder and run `node server.js` or `nodemon server.js` (if you have nodemon installed globally).
+- In another terminal tab cd into the 'frontend' folder.
+- run `npm install` to install dependencies for the client-side application.
+- run `npm start`.
+- The frontend application is running on `localhost:3000`.
+- Thank you for viewing my app!
 
+####Technologies/packages used for challenge:
 
-Things I thought about doing:
+- React for the client-side framework
+- Jest and Enzyme for testing
+- Axios for making api calls
+
+I did find one bug - I needed to enable cors on the backend so I could make http requests to the server.
+
+####Here are things I would have done if this were a real on-the-job project / if I had more time:
+
+- refactor some of the component did mount (initialization)
+- further tailor the brand recommendations (for size and specific measurements(bra size))
+- use a state management system like redux to centralize the app state and make it easier to transition between questions
+- fancier UX, especially transitions
+- more testing
+
+Thank you so much for this opportunity and I look forward to hearing from you soon!
+
+-Miranda
 
 ## License
 

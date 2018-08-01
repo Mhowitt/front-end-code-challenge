@@ -45,12 +45,18 @@ class App extends Component {
       });
     } else {
       currentQuestion = +currentQuestion + 1;
-      debugger;
       this.setState({
         question: currentQuestion,
         [e.target.name]: e.target.value
       });
     }
+  };
+
+  startQuiz = e => {
+    this.setState({
+      takingQuiz: true,
+      question: '1'
+    });
   };
 
   goHome = e => {
@@ -73,7 +79,11 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header takingQuiz={takingQuiz} goHome={this.goHome} />
+        <Header
+          takingQuiz={takingQuiz}
+          goHome={this.goHome}
+          startQuiz={this.startQuiz}
+        />
         {takingQuiz ? (
           <ProgressBar
             question={question}

@@ -11,6 +11,7 @@ const Size = props => {
           <Link to="/results">
             <button
               className="size-button"
+              name="bodySize"
               onClick={props.handleClick}
               value="petite"
             >
@@ -20,6 +21,7 @@ const Size = props => {
           <Link to="/results">
             <button
               className="size-button"
+              name="bodySize"
               onClick={props.handleClick}
               value="average"
             >
@@ -29,6 +31,7 @@ const Size = props => {
           <Link to="/results">
             <button
               className="size-button"
+              name="bodySize"
               onClick={props.handleClick}
               value="tall"
             >

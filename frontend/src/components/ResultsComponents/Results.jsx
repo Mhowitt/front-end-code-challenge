@@ -92,8 +92,8 @@ class Results extends Component {
           <div>
             <h2>We recommend these brands for your unique amazingness</h2>
             <div className="card-container">
-              <div>
-                Your Profile:
+              <p className="profile">Your Profile</p>
+              <div className="profile-results">
                 <p>Gender: {this.props.gender}</p>
                 <p>Body Type: {this.props.bodyType}</p>
                 <p>Size: {this.props.bodySize}</p>

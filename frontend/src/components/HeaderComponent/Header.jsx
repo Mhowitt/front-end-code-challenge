@@ -15,7 +15,7 @@ const Header = props => {
       ) : (
         <div className="button-header">
           <Link to={'/profile'}>
-            <button className="start-quiz" onClick={props.goHome}>
+            <button className="start-quiz" onClick={props.startQuiz}>
               Take our Quiz
             </button>
           </Link>
